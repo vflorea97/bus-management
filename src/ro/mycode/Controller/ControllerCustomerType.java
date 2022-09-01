@@ -52,4 +52,10 @@ public class ControllerCustomerType {
         text += this.customerTypes.get(i).toSave();
         return text;
     }
+
+    public void afisare (){
+        for (int i = 0; i < customerTypes.size(); i++){
+            System.out.println(customerTypes.get(i).descriere());
+        }
+    }
 }
