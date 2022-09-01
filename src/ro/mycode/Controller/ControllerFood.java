@@ -14,6 +14,7 @@ public class ControllerFood {
 
     public ControllerFood (){
         foods = new ArrayList<>();
+        this.load();
 
     }
     public void load (){
@@ -44,7 +45,7 @@ public class ControllerFood {
     }
     public String toSave (){
         String text = "";
-        int i = 0;
+        int i;
         for (i = 0; i < foods.size() - 1; i++){
             text += this.foods.get(i).toSave() + "\n";
         }
