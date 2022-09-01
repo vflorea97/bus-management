@@ -25,6 +25,14 @@ public class Order {
         this.ticketId = Integer.parseInt(prop[2]);
     }
 
+    public String descriere (){
+        String text = "";
+        text += "Order id: " + this. orderId + "\n";
+        text += "Customer id: " + this.customerId + "\n";
+        text += "Ticket id: " + this.ticketId + "\n";
+        return text;
+    }
+
     public String toSave (){
         return this.orderId+","+this.customerId+","+this.ticketId;
     }
