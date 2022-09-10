@@ -16,6 +16,9 @@ public class ControllerCustomer {
         customers = new ArrayList<>();
         this.load();
     }
+    public ControllerCustomer(String text){
+        customers = new ArrayList<>();
+    }
 
     public void load (){
         try{
@@ -58,5 +61,33 @@ public class ControllerCustomer {
         for (int i = 0; i < customers.size(); i++){
             System.out.println(customers.get(i).descriere());
         }
+    }
+
+    public Customer getCustomerByEmail(String email){
+        for (int i = 0; i < customers.size(); i++){
+            if (customers.get(i).getEmail().equals(email)){
+                return customers.get(i);
+            }
+        }
+        return null;
+    }
+    public void addCustomer (Customer customer){
+        if (getCustomerByEmail(customer.getEmail()) == null){
+            this.customers.add(customer);
+        }
+    }
+    public int generareId (){
+        if (this.customers.size() > 0){
+             return customers.get(customers.size() - 1).getCustomerId() + 1;
+        }
+        return 1;
+    }
+    public boolean verificareEmail (String email){
+        for (int i = 0; i < customers.size(); i++){
+            if (customers.get(i).getEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
     }
 }
