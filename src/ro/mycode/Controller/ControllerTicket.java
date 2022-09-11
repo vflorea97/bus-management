@@ -18,6 +18,9 @@ public class ControllerTicket {
         tickets = new ArrayList<>();
         this.load();
     }
+    public ControllerTicket (String text){
+        tickets = new ArrayList<>();
+    }
     public void load (){
         try{
             File file = new File("D:\\mycode\\incapsulare\\bus-management\\src\\ro\\mycode\\Data\\Tickets.txt");
@@ -58,5 +61,24 @@ public class ControllerTicket {
         for (int i = 0; i < tickets.size(); i++){
             System.out.println(tickets.get(i).descriere());
         }
+    }
+    public Ticket getTicketByTicketId (int idTicket){
+        for (int i = 0; i < tickets.size(); i++){
+            if (tickets.get(i).getIdTicket() == idTicket){
+                return tickets.get(i);
+            }
+        }
+        return null;
+    }
+    public void addTicket (Ticket ticket){
+        if (getTicketByTicketId(ticket.getIdTicket()) == null){
+            this.tickets.add(ticket);
+        }
+    }
+    public int generareId (){
+        if (this.tickets.size() > 0){
+            return tickets.get(tickets.size() - 1).getIdTicket() + 1;
+        }
+        return -1;
     }
 }

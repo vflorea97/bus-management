@@ -16,6 +16,9 @@ public class ControllerCustomerType {
         customerTypes = new ArrayList<>();
         this.load();
     }
+    public ControllerCustomerType (String text){
+        customerTypes = new ArrayList<>();
+    }
     public void load (){
         try{
             File file = new File("D:\\mycode\\incapsulare\\bus-management\\src\\ro\\mycode\\Data\\CustomerType");
@@ -56,6 +59,19 @@ public class ControllerCustomerType {
     public void afisare (){
         for (int i = 0; i < customerTypes.size(); i++){
             System.out.println(customerTypes.get(i).descriere());
+        }
+    }
+    public CustomerType verificareCod (int cod){
+        for (int i = 0; i < customerTypes.size(); i++){
+            if (customerTypes.get(i).getCustomerTypeId() == cod){
+                return customerTypes.get(i);
+            }
+        }
+        return null;
+    }
+    public void addCustomerType (CustomerType customerType){
+        if (verificareCod(customerType.getCustomerTypeId()) == null){
+            this.customerTypes.add(customerType);
         }
     }
 }

@@ -3,6 +3,7 @@ package ro.mycode.View;
 import ro.mycode.Controller.ControllerCustomer;
 import ro.mycode.Controller.ControllerCustomerType;
 import ro.mycode.Controller.ControllerTicket;
+import ro.mycode.Models.Customer;
 
 import java.util.Scanner;
 
@@ -39,6 +40,9 @@ public class ViewLogin {
             int buton = Integer.parseInt(scanner.nextLine());
             switch (buton){
                 case 1:
+                    addCustomer();
+                    break;
+                case 2:
                     break;
                 default:
                     menu();
@@ -54,9 +58,21 @@ public class ViewLogin {
         System.out.println("Introdu prenumele: ");
         String lastName = scanner.nextLine();
         System.out.println("Introdu emailul: ");
-        String mail
-        while(controllerCustomer.verificareEmail())
-
+        String mail = scanner.nextLine();
+        while(controllerCustomer.verificareEmail(mail)){
+            System.out.println("Adresa de email este deja asociata unui alt cont. Introdu alta adresa: ");
+            mail = scanner.nextLine();
+        }
+        System.out.println("Introdu numarul de telefon: ");
+        int phoneNumber = Integer.parseInt(scanner.nextLine());
+        System.out.println("Introdu o parola: ");
+        String password = scanner.nextLine();
+        Customer customer = new Customer(id,firstName,lastName,mail,phoneNumber,password);
+        controllerCustomer.addCustomer(customer);
+        controllerCustomer.save();
+        ViewCustomer viewCustomer = new ViewCustomer(customer);
+        viewCustomer.runCustomer();
     }
+
 
 }

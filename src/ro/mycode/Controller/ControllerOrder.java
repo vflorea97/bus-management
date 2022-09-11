@@ -56,4 +56,23 @@ public class ControllerOrder {
             System.out.println(orders.get(i).descriere());
         }
     }
+    public Order getOrderById (int orderId){
+        for (int i = 0; i < orders.size(); i++){
+            if (orders.get(i).getOrderId()==orderId){
+                return orders.get(i);
+            }
+        }
+        return null;
+    }
+    public void addOrder (Order order){
+        if (getOrderById(order.getOrderId()) == null){
+            this.orders.add(order);
+        }
+    }
+    public int generareId (){
+        if (this.orders.size() > 0){
+            return orders.get(orders.size() - 1).getOrderId() + 1;
+        }
+        return -1;
+    }
 }

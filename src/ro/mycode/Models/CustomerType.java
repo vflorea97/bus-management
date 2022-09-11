@@ -27,8 +27,8 @@ public class CustomerType {
 
     public String descriere (){
         String text = "";
-        text += "CustomerType id: " + this.customerTypeId + "\n";
-        text += "CustomerType: " + this.customerType + "\n";
+        text += "Cod: " + this.customerTypeId + "\n";
+        text += "Tip: " + this.customerType + "\n";
         text += "Pret: " + this.pret + "\n";
         return text;
     }

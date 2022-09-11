@@ -57,4 +57,12 @@ public class ControllerFood {
             System.out.println(foods.get(i).descriere());
         }
     }
+    public Food getFoodById (int idFood){
+        for (int i = 0; i < foods.size(); i++){
+            if (foods.get(i).getFoodId() == idFood){
+                return foods.get(i);
+            }
+        }
+        return null;
+    }
 }

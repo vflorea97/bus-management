@@ -7,6 +7,7 @@ public class Customer {
     private String lastName;
     private String email;
     private int phoneNumaber;
+    private String password;
 
     public Customer (){
         this.customerId = 0;
@@ -14,14 +15,16 @@ public class Customer {
         this.lastName = "";
         this.email = "";
         this.phoneNumaber = 0;
+        this.password = "";
     }
 
-    public Customer (int customerId,String firstName,String lastName,String email,int phoneNumaber){
+    public Customer (int customerId,String firstName,String lastName,String email,int phoneNumaber,String password){
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumaber = phoneNumaber;
+        this.password = password;
     }
 
     public Customer (String text){
@@ -31,6 +34,7 @@ public class Customer {
         this.lastName = prop[2];
         this.email = prop[3];
         this.phoneNumaber = Integer.parseInt(prop[4]);
+        this.password = prop[5];
     }
 
     public String descriere (){
@@ -44,7 +48,7 @@ public class Customer {
     }
 
     public String toSave (){
-        return this.customerId+","+this.firstName+","+this.lastName+","+this.email+","+this.phoneNumaber;
+        return this.customerId+","+this.firstName+","+this.lastName+","+this.email+","+this.phoneNumaber+","+this.password;
     }
 
     public int getCustomerId() {
@@ -85,5 +89,12 @@ public class Customer {
 
     public void setPhoneNumaber(int phoneNumaber) {
         this.phoneNumaber = phoneNumaber;
+    }
+
+    public String getPassword (){
+        return password;
+    }
+    public void setPassword (String password){
+        this.password = password;
     }
 }

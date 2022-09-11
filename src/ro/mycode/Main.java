@@ -1,6 +1,9 @@
 package ro.mycode;
 
 import ro.mycode.Controller.*;
+import ro.mycode.Models.Customer;
+import ro.mycode.View.ViewCustomer;
+import ro.mycode.View.ViewLogin;
 
 public class Main {
 
@@ -17,7 +20,10 @@ public class Main {
 //        ControllerOrder controllerOrder = new ControllerOrder();
 //        controllerOrder.afisare();
 
-        ControllerTicket controllerTicket = new ControllerTicket();
-        controllerTicket.afisare();
+//        ControllerTicket controllerTicket = new ControllerTicket();
+//        controllerTicket.afisare();
+
+        Customer customer = new Customer(100,"Albert","Tocea","alb@gmail.com",7351,"prpr");
+        ViewCustomer viewCustomer= new ViewCustomer(customer);
     }
 }
